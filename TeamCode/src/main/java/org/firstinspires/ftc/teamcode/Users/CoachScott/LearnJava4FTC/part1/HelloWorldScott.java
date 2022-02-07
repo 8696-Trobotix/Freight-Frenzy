@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp()
-public class HelloWorld extends OpMode {
+public class HelloWorldScott extends OpMode {
   
   /*
   *   This method is called when the OpMode is initialized and
