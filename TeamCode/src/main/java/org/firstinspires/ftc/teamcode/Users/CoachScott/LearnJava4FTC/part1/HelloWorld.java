@@ -19,7 +19,7 @@ public class HelloWorld extends OpMode {
   *   This method does nothing while the OpMode is running.
   */
   @Override
-  public void loop {
+  public void loop() {
     
   }    
 }
