@@ -1,1 +1,9 @@
+package org.firstinspires.ftc.teamcode.practice
 
+public class GidoPractice {
+
+    public void Practice() {
+
+        
+    }
+}
