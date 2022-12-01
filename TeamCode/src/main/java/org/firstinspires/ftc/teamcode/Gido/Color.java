@@ -29,18 +29,18 @@ public class Color {
         touchSensor = hwMap.get(ColorSensor.class, "sensor_color_distance");
         distanceSensor= hwMap.get(DistanceSensor.class, "sensor_color_distance");
     }
-        public boolean isTouchSensor() {
+    public boolean isTouchSensor() {
 
             return !touchSensor.getState();
-        }
+    }
     public void setMotorSpeed(double speed) {
 
         motor.setPower(speed);
     }
-        public double getMotorRotations() {
+    public double getMotorRotations() {
 
             return motor.getCurrentPosition() / ticksPerRotation;
-        }
+    }
     public void setServoPosition(double position) {
 
         servo.setPosition(position);
@@ -50,9 +50,9 @@ public class Color {
 
         return colorSensor.red();
     }
-        public double getDistance(DistanceUnit du) {
+    public double getDistance(DistanceUnit du) {
 
             return distanceSensor.getDistance(du);
-        }
+    }
     
 }
