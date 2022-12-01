@@ -2,16 +2,17 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 
-@TeleOp(name="Test", group="Linear Opmode")
-@Autonomous(name="Test", group="Linear Opmode")
+@Autonomous(name="Wheels", group="Linear Opmode")
 
 public class Wheels extends LinearOpMode {
 
     private DcMotor rearLeft, rearRight;
+
+    private ElapsedTime     runtime = new ElapsedTime();
 
     @Override
     public void runOpMode() {
@@ -31,30 +32,24 @@ public class Wheels extends LinearOpMode {
         // Wait
         waitForStart();
 
-        // Mutable Variables
-        double drive
-        double rl, rr, max;
+        moveRightWheel(0.5, 2);
+        moveLeftWheel(0.5, 2);
 
-        // Constants
-        final double turnSpeedMax = 0.64, imperfect = 1.1;
+    }
+    public void moveRightWheel(double power, double timeSecond) {
 
-        while (opModeIsActive()) {
+        rearRight.setPower(power);
 
-            // Calculations
-            rl = drive
-            rr = drive
-            
-            max = Math.max(Math.abs(rl), max);
-            max = Math.max(Math.abs(rr), max);
-            if (max > 1) {
+        runtime.reset();
+        while(opModeIsActive() && runtime.seconds() < timeSecond); 
+        rearRight.setPower(0);
+    }
+    public void moveLeftWheel(double power, double timeSecond) {
 
-                rl /= max;
-                rr /= max;
-            }
+        rearLeft.setPower(power);
 
-            // Act
-            rearLeft.setPower(rl);
-            rearRight.setPower(rr);
-        }
+        runtime.reset();
+        while(opModeIsActive() && runtime.seconds() < timeSecond); 
+        rearLeft.setPower(0);
     }
 }
