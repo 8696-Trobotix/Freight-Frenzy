@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.practice
+package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp; // imports
@@ -11,10 +11,9 @@ public class GidoPractice extends OpMode {
 
         
     }
-
         @Override
         public void loop() {
 
-            
+
         }
 }
