@@ -1,3 +1,7 @@
+/*
+Repurposed class because I spent like an hour on it and I don't want delete it all
+This class is now meant for copying stuff now
+*/
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.ColorSensor;
@@ -6,8 +10,7 @@ import com.qualcomm.robotcore.hardware.DigitalChannel;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
-
-import com.qualcomm.robotcore.external.navigation.DistanceUnit; // Imports
+import com.qualcomm.robotcore.external.navigation.DistanceUnit;
 
 public class Color {
 
@@ -20,6 +23,8 @@ public class Color {
 
     public void init(HardwareMap hwMap) {
         
+
+        // Connects the things
         touchSensor = hwMap.get(DigitalChannel.class, "touch_sensor");
         touchSensor.setMode(DigitalChannel.Mode.INPUT);
         motor = hwMap.get(DcMotor.class, "motor");
