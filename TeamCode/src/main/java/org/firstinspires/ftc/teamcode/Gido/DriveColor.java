@@ -59,31 +59,7 @@ public class DriveColor extends LinearOpMode {
         moveRightWheel(0.5, 0.1);
         moveLeftWheel(0.5, 0.1); 
 
-        // Mutable Variables
-        int detectColor = 0; // RGB --> 0, 1, 2
-        double colorThreshold = 0.5;
-
-        while(opModeIsActive()) {
-
-            /* Uses controller parts needs to be adjusted to autonomous
-
-            if (gamepad1.a) detectColor = 0;
-            else if (gamepad1.b) detectColor = 1;
-            else if (gamepad1.x) detectColor = 2;
-            else if (gamepad1.y) detectColor = 3;
-
-            // Color threshold
-            if (gamepad1.left_bumper && colorThreshold >= 0.1) colorThreshold -= 0.1;
-            else if (gamepad1.right_bumper && colorThreshold <= 0.9) colorThreshold += 0.1;
-
-            if (detectColor != 3) runtime.reset();
-            if (detectColor == 0 && colorSensor.red() >= colorThreshold) {
-                rl = 1;
-                rr = 1;
-                rearLeft.setPower(rl);
-                rearRight.setPower(rr);
-                while (runtime.seconds() < 1);*/
-        }
+        
     }
     public void moveRightWheel(double power, double timeSecond) {
 
