@@ -59,7 +59,33 @@ public class DriveColor extends LinearOpMode {
         moveRightWheel(0.5, 0.1);
         moveLeftWheel(0.5, 0.1); 
 
-        
+        // Gets the amount of color and then adds together for the total
+       double  red = colorSensor.red();
+       double green = colorSensor.green();
+       double blue = colorSensor.blue();
+       double total = red + green + blue; 
+
+       double pred = red / total;
+       double pgreen = green / total;
+       double pblue = blue / total;
+
+        // Moves in different ways depending on which color the color sensor sees
+       if(pred > pgreen && pblue) {
+
+            moveRightWheel(0.5, 3);
+            moveLeftWheel(0.5, 3);
+       }
+        else if(pgreen > pred && pblue) {
+
+            moveRightWheel(-0.5, 0.2);
+            moveLeftWheel(-0.5, 0.2);
+        }
+        else if(pblue > pgreen && pred) {
+
+            moveRightWheel(-0.5, 0.2);
+            moveLeftWheel(0.5, 0.2);
+        }
+
     }
     public void moveRightWheel(double power, double timeSecond) {
 
