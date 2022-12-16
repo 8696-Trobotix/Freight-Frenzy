@@ -9,11 +9,12 @@ List of things to do:
 
     Bonus: Spin.
 */
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.Gido;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
+import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 // Motor and Color sensor imports
@@ -22,6 +23,8 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 
 // Distance sensor import
 import com.qualcomm.robotcore.util.Range;
+
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 
 @Autonomous(name="DriveColor", group="Linear Opmode")
@@ -41,7 +44,7 @@ public class DriveColor extends LinearOpMode {
         
         // Connects the color and distance sensors
         colorSensor = hardwareMap.get(ColorSensor.class, "colorSensor");
-        distanceSensor= hwMap.get(DistanceSensor.class, "sensor_color_distance");
+        distanceSensor= hardwareMap.get(DistanceSensor.class, "sensor_color_distance");
 
         // Set Motor Directions
         rearLeft.setDirection(DcMotor.Direction.FORWARD);

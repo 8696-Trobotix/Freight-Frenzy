@@ -48,7 +48,7 @@ Like a record, baby, right 'round, 'round, 'round (I need your love)
 You spin me right 'round, baby, right 'round
 */
 
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.Gido;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -75,7 +75,6 @@ public class SPIN extends LinearOpMode {
         // Set Motors to Brake
         rearLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rearRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         // Wait
         waitForStart();
