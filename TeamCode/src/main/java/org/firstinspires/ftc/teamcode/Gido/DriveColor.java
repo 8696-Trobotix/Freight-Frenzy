@@ -50,7 +50,6 @@ public class DriveColor extends LinearOpMode {
         // Set Motors to Brake
         rearLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rearRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         // Wait
         waitForStart();
@@ -70,17 +69,17 @@ public class DriveColor extends LinearOpMode {
        double pblue = blue / total;
 
         // Moves in different ways depending on which color the color sensor sees
-       if(pred > pgreen && pblue) {
+       if(pred > pgreen && pred > pblue ) {
 
             moveRightWheel(0.5, 3);
             moveLeftWheel(0.5, 3);
        }
-        else if(pgreen > pred && pblue) {
+        else if(pgreen > pred && pgreen > pblue) {
 
             moveRightWheel(-0.5, 0.2);
             moveLeftWheel(-0.5, 0.2);
         }
-        else if(pblue > pgreen && pred) {
+        else if(pblue > pgreen && pblue > pred) {
 
             moveRightWheel(-0.5, 0.2);
             moveLeftWheel(0.5, 0.2);
