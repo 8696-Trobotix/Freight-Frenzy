@@ -6,8 +6,6 @@ List of things to do:
     1. Get the robot to move when it sees a particular color
     2. Get the robot to stop moving when it is in a range of distance away from that color
     3. Make the robot move back until it is in the correct range of distance if it is to close to the color
-
-    Bonus: Spin.
 */
 package org.firstinspires.ftc.teamcode.Gido;
 
