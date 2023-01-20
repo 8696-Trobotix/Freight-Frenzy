@@ -19,7 +19,7 @@ public class SPIN extends LinearOpMode {
         rearRight = hardwareMap.get(DcMotor.class, "rearRight");
 
         // Set Motor Directions
-        rearLeft.setDirection(DcMotor.Direction.FORWARD);
+        rearLeft.setDirection(DcMotor.Direction.REVERSE);
         rearRight.setDirection(DcMotor.Direction.FORWARD);
 
         // Set Motors to Brake
@@ -30,7 +30,7 @@ public class SPIN extends LinearOpMode {
         waitForStart();
 
         // Spins
-        moveRightWheel(0.5, -20);
+        moveRightWheel(0.5, 20);
         moveLeftWheel(0.5, 20); 
     }
     public void moveRightWheel(double power, double timeSecond) {
