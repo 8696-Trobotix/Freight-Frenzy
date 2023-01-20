@@ -1,4 +1,6 @@
-// Currently only the motors and 4 wheels are programmed
+/*
+This program will automatically pick up, score cones, and park during auto.
+*/
 
 package org.firstinspires.ftc.teamcode.Gido;
 
@@ -14,7 +16,7 @@ public class AutoConeAuto extends LinearOpMode {
 
     private DcMotor rearLeft, rearRight, frontRight, frontLeft;
     private ElapsedTime     runtime = new ElapsedTime();
-    private DigitalChannel colorSensor;
+    private ColorSensor colorSensor;
 }
 @Override
 public void runOpMode() {
@@ -40,9 +42,15 @@ public void runOpMode() {
     // Wait
     waitForStart();
 
-    // Moves to show the program is active
-    moveRightWheel(0.5, 0.1);
-    moveLeftWheel(0.5, 0.1); 
+    // Gets the amount of color and then adds together for the total
+       double  red = colorSensor.red();
+       double green = colorSensor.green();
+       double blue = colorSensor.blue();
+       double total = red + green + blue; 
+
+       double pred = red / total;
+       double pgreen = green / total;
+       double pblue = blue / total;
     
     public void moveRightWheel(double power, double timeSecond) {
 
