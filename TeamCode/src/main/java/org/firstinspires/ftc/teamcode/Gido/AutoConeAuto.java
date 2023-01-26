@@ -1,5 +1,5 @@
 /*
-This program will automatically pick up, score cones, and park during auto.
+This program will automatically pick up cones, score cones, and park during auto.
 */
 
 package org.firstinspires.ftc.teamcode.Gido;
@@ -9,7 +9,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.util.ElapsedTime; // Autonomous 
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.ColorSensor; // Motor and color
+import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.hardware.DistanceSensor; // Motors, distance and color sensors
 
 @Autonomous(name="AutoConeAuto", group="Linear Opmode")
 public class AutoConeAuto extends LinearOpMode {
@@ -17,6 +18,7 @@ public class AutoConeAuto extends LinearOpMode {
     private DcMotor rearLeft, rearRight, frontRight, frontLeft;
     private ElapsedTime     runtime = new ElapsedTime();
     private ColorSensor colorSensor;
+    private DistanceSensor distanceSensor;
 }
 @Override
 public void runOpMode() {
@@ -42,6 +44,21 @@ public void runOpMode() {
     // Wait
     waitForStart();
 
+    boolean run = true;
+
+    while(run) {
+
+        moveAllWheels(0.5);
+
+        if(pblue > pblue && pred && pgreen) {
+
+            if(getDistance(500)) {
+
+                
+            }
+        } // Moves until it sees a blue cone
+
+
     // Gets the amount of color and then adds together for the total
        double  red = colorSensor.red();
        double green = colorSensor.green();
@@ -52,24 +69,37 @@ public void runOpMode() {
        double pgreen = green / total;
        double pblue = blue / total;
     
-    public void moveRightWheel(double power, double timeSecond) {
+    public void rearRightWheel(double power) {
 
         rearRight.setPower(power);
+
+        runtime.reset();
+    } // Moves the rear right wheel
+    public void frontLeftWheel(double power) {
+
+        rearLeft.setPower(power);
+
+        runtime.reset(); 
+    } // Moves the front left wheel
+    public void rearLeftWheel(double power) {
+
+        frontLeft.setPower(power);
+
+        runtime.setPower(power)
+    } // Moves the rear left wheel
+    public void frontRightWheel(double power) {
+
         frontRight.setPower(power);
 
         runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < timeSecond); 
-        rearRight.setPower(0);
-        frontRight.setPower(0);
-    }
-    public void moveLeftWheel(double power, double timeSecond) {
+    } // Moves the front right wheel
+    public void moveAllWheels(double power) {
 
-        rearLeft.setPower(power);
-        frontLeft.setPower(power);
 
-        runtime.reset();
-        while(opModeIsActive() && runtime.seconds() < timeSecond); 
-        rearLeft.setPower(0);
-        frontLeft.setPower(0);
+    } // Moves all of the wheels
+    public double getDistance(DistanceUnit du) {
+
+        return distanceSensor.getDistance(du);
+    } // Gets the distance
     }
 }
