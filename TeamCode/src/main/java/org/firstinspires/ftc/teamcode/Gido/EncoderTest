@@ -12,11 +12,26 @@ import com.qualcomm.robotcore.hardware.DcMotor; // Movey thingy
 @Autonomous(name="EncoderTest", group="Linear Opmode")
 public class EncoderTest extends LinearOpMode {
 
-    private DcMotor rearLeft, rearRight, frontRight, frontLeft;
+    private DcMotor rearLeft, frontRight,
     private ElapsedTime     runtime = new ElapsedTime(); // Motar :O
 }
 @Override
 public void runOpMode() { // This class does something idk ¯\_(ツ)_/¯
 
+    rearRight = hardwareMap.get(DcMotor.class, "RightistMoter");
+    rearLeft = hardwareMap.get(DcMotor.class, "MotarLeft");
 
+    rearLeft.setDirection(DcMotor.Direction.REVERSE);
+    RightMotrr.setDirection(DcMotor.Direction.FORWARD); // VROOoooOOOOM VROOOOOOOOOM
+
+    leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+    leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+    rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER); // Magic
+
+    telemetry.addData("Starting at",  "%7d :%7d",
+                        leftDrive.getCurrentPosition(),
+                        rightDrive.getCurrentPosition()); // y is it so indented
+    telemetry.update();
 }
