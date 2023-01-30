@@ -34,4 +34,6 @@ public void runOpMode() { // This class does something idk ¯\_(ツ)_/¯
                         leftDrive.getCurrentPosition(),
                         rightDrive.getCurrentPosition()); // y is it so indented
     telemetry.update();
+
+           waitForStart();
 }
