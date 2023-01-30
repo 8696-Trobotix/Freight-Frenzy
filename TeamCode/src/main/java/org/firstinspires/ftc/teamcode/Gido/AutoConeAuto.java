@@ -52,14 +52,9 @@ public void runOpMode() {
 
         if(pblue > pblue && pred && pgreen) {
 
-            if(getDistance(500)) {
+            moveAllWheels(0.0);
 
-                
-            }
-        } // Moves until it sees a blue cone
-
-
-    // Gets the amount of color and then adds together for the total
+        } 
        double  red = colorSensor.red();
        double green = colorSensor.green();
        double blue = colorSensor.blue();
@@ -95,7 +90,12 @@ public void runOpMode() {
     } // Moves the front right wheel
     public void moveAllWheels(double power) {
 
+        frontRight.setPower(power);
+        frontLeft.setPower(power);
+        rearRight.setPower(power);
+        rearLeft.setPower(power);
 
+        runtime.reset();
     } // Moves all of the wheels
     public double getDistance(DistanceUnit du) {
 

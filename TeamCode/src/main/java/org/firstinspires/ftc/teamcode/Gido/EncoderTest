@@ -1,0 +1,22 @@
+/*
+Don't know how to use encoders? Cry about it because neither do I.
+*/
+package org.firstinspires.ftc.teamcode.Gido;
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.util.ElapsedTime; // ITS ALIVE
+
+import com.qualcomm.robotcore.hardware.DcMotor; // Movey thingy
+
+@Autonomous(name="EncoderTest", group="Linear Opmode")
+public class EncoderTest extends LinearOpMode {
+
+    private DcMotor rearLeft, rearRight, frontRight, frontLeft;
+    private ElapsedTime     runtime = new ElapsedTime(); // Motar :O
+}
+@Override
+public void runOpMode() { // This class does something idk ¯\_(ツ)_/¯
+
+
+}
