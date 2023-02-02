@@ -15,7 +15,6 @@ import com.qualcomm.robotcore.hardware.DistanceSensor; // Motors, distance and c
 @Autonomous(name="AutoConeAuto", group="Linear Opmode")
 public class AutoConeAuto extends LinearOpMode {
 
-    private DcMotor rearLeft, rearRight, frontRight, frontLeft;
     private ElapsedTime     runtime = new ElapsedTime();
     private ColorSensor colorSensor;
     private DistanceSensor distanceSensor;
@@ -23,36 +22,20 @@ public class AutoConeAuto extends LinearOpMode {
 @Override
 public void runOpMode() {
 
-    // Connect Motors
-    rearLeft = hardwareMap.get(DcMotor.class, "rearLeft");
-    rearRight = hardwareMap.get(DcMotor.class, "rearRight");
-    frontRight = hardwareMap.get(DcMotor.class, "frontRight");
-    frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
-
-    // Set Motor Directions
-    rearLeft.setDirection(DcMotor.Direction.FORWARD);
-    rearRight.setDirection(DcMotor.Direction.FORWARD);
-    frontRight.setDirection(DcMotor.Direction.FORWARD);
-    frontLeft.setDirection(DcMotor.Direction.FORWARD);
-
-    // Set Motors to Brake
-    rearLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-    rearRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-    frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-    frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.Brake);
-
     // Wait
     waitForStart();
+
+    Motors motor = new Motors();
 
     boolean run = true;
 
     while(run) {
 
-        moveAllWheels(0.5);
+        motor.moveAllWheels(0.5);
 
         if(pblue > pblue && pred && pgreen) {
 
-            moveAllWheels(0.0);
+            motor.moveAllWheels(0.0);
 
         } 
        double  red = colorSensor.red();
@@ -64,42 +47,9 @@ public void runOpMode() {
        double pgreen = green / total;
        double pblue = blue / total;
     
-    public void rearRightWheel(double power) {
+        public double getDistance(DistanceUnit du) {
 
-        rearRight.setPower(power);
-
-        runtime.reset();
-    } // Moves the rear right wheel
-    public void frontLeftWheel(double power) {
-
-        rearLeft.setPower(power);
-
-        runtime.reset(); 
-    } // Moves the front left wheel
-    public void rearLeftWheel(double power) {
-
-        frontLeft.setPower(power);
-
-        runtime.setPower(power)
-    } // Moves the rear left wheel
-    public void frontRightWheel(double power) {
-
-        frontRight.setPower(power);
-
-        runtime.reset();
-    } // Moves the front right wheel
-    public void moveAllWheels(double power) {
-
-        frontRight.setPower(power);
-        frontLeft.setPower(power);
-        rearRight.setPower(power);
-        rearLeft.setPower(power);
-
-        runtime.reset();
-    } // Moves all of the wheels
-    public double getDistance(DistanceUnit du) {
-
-        return distanceSensor.getDistance(du);
-    } // Gets the distance
+            return distanceSensor.getDistance(du);
+        } // Gets the distance
     }
 }
