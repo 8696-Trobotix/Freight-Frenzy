@@ -41,17 +41,18 @@ public void runOpMode() {
             sleep(100);
             motor.rearLeftWheel(0.3);
             motor.frontLeftWheel(-0.3);
-            if(du < 100) {
+           /* if(du < 100) {
                 
                 motor.rearLeftWheel(0.0);
                 motor.frontLeftWheel(0.0);
                 sleep(100);
                 motor.timeAllWheels(0.6, 0.35);
                 motor.timeAllWheels(-0.6, -0.35);
-            }
+            } */// Unit of measurement needs to be specified
             for(int i = 1; i <= 5; i++) {
 
-
+                motor.rearRightWheel(0.5);
+                motor.frontRightWheel(0.5);
             }
         }
        double  red = colorSensor.red();
