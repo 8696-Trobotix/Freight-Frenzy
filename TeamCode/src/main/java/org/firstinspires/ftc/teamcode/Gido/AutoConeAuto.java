@@ -1,5 +1,8 @@
 /*
 This program will automatically pick up cones, score cones, and park during auto.
+
+To Do List:
+Add arm
 */
 
 package org.firstinspires.ftc.teamcode.Gido;
@@ -32,12 +35,25 @@ public void runOpMode() {
     while(run) {
 
         motor.moveAllWheels(0.5);
-
-        if(pblue > pblue && pred && pgreen) {
-
+        if(pblue > pred && pgreen && pblue) {
+            
             motor.moveAllWheels(0.0);
+            sleep(100);
+            motor.rearLeftWheel(0.3);
+            motor.frontLeftWheel(-0.3);
+            if(du < 100) {
+                
+                motor.rearLeftWheel(0.0);
+                motor.frontLeftWheel(0.0);
+                sleep(100);
+                motor.timeAllWheels(0.6, 0.35);
+                motor.timeAllWheels(-0.6, -0.35);
+            }
+            for(int i = 1; i <= 5; i++) {
 
-        } 
+
+            }
+        }
        double  red = colorSensor.red();
        double green = colorSensor.green();
        double blue = colorSensor.blue();
@@ -50,6 +66,6 @@ public void runOpMode() {
         public double getDistance(DistanceUnit du) {
 
             return distanceSensor.getDistance(du);
-        } // Gets the distance
+        } // Gets the distance 
     }
 }
