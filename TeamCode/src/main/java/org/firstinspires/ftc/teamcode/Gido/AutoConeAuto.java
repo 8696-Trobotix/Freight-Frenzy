@@ -9,11 +9,18 @@ package org.firstinspires.ftc.teamcode.Gido;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.util.ElapsedTime; // Autonomous 
+import com.qualcomm.robotcore.util.ElapsedTime;
+ // Autonomous 
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.ColorSensor;
-import com.qualcomm.robotcore.hardware.DistanceSensor; // Motors, distance and color sensors
+import com.qualcomm.robotcore.hardware.DistanceSensor;
+ // Motors, distance and color sensors
+
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import org.firstinspires.ftc.robotcore.external.navigation.AngularVelocity;
+import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles
+// Pretty sure this is angle stuff I need for turning
 
 @Autonomous(name="AutoConeAuto", group="Linear Opmode")
 public class AutoConeAuto extends LinearOpMode {
