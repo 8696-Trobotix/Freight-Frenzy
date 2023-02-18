@@ -14,7 +14,7 @@ public class Motors extends LinearOpMode {
     private DcMotor rearLeft, rearRight, frontRight, frontLeft;
     private ElapsedTime     runtime = new ElapsedTime();
 }
-
+public void runOpMode() {
     // Connect Motors
     rearLeft = hardwareMap.get(DcMotor.class, "rearLeft");
     rearRight = hardwareMap.get(DcMotor.class, "rearRight");
@@ -110,3 +110,4 @@ public class Motors extends LinearOpMode {
         frontLeft.setPower(0);
         frontRight.setPower(0);
     } // Moves all of the wheels for a certain amount of time   
+}
