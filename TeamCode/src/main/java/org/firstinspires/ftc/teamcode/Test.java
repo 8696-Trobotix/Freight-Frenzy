@@ -1,8 +1,8 @@
 /*
-
 Test
 
 Current Status: Just a Mecanum drive.
+                Motor polarity is currently all set to forward.
 
 */
 
