@@ -1,0 +1,41 @@
+// First Teleop, this class should simply open and close a claw.
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.util.ElapsedTime; // TeleOp
+
+import com.qualcomm.robotcore.hardware.Servo;
+
+@Autonomous(name="ClawPractice", group="Linear Opmode")
+public class ClawPractice extends LinearOpMode {
+
+    private Servo servo;
+    public TouchSensor clawRest, magnet; 
+    @Override
+    public void runOpMode() {
+
+        clawRest = hardwareMap.get(TouchSensor.class, "clawRest");
+        magnet   = hardwareMap.get(TouchSensor.class, "magnet");
+        final double openClaw = 0.25, closeClaw = 0.65;
+        servo = hwMap.get(Servo.class, "servo");
+
+        waitForStart();
+        public void setServoPosition(double position) {
+
+            servo.setServoPosition(position);
+        } // Sets the servo position
+        public void clawRelease() {
+
+            servo.setServoPosition(openClaw);
+            sleep(300);
+            servo.setServoPosition(closeClaw);
+        } // Opens the claw waits for a specified amount of time and then closes the claw
+        while(opModeIsActive) {
+
+            if(gamepad1.a) {
+
+                clawRelease();
+            } // When the 'a' button is pressed runs clawRelease()
+        }
+    }
+}

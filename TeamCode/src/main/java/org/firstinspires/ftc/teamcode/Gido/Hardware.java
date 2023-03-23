@@ -1,17 +1,17 @@
 /*
-This class is for motors so I don't have to make another motor method and so I can just import them from here
+This class is meant for hardware stuff so that instead of making the same objects over and over
+I can just get them from here.
 */
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.util.ElapsedTime; // Autonomous 
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@Autonomous(name="AutoConeAuto", group="Linear Opmode")
-public class Motors extends LinearOpMode { 
+@Autonomous(name="Hardware", group="Linear Opmode")
+public class Hardware extends LinearOpMode { 
 
-    private DcMotor rearLeft, rearRight, frontRight, frontLeft;
+    private DcMotor rearLeft, rearRight, frontRight, frontLeft, slideMotor;
     private ElapsedTime     runtime = new ElapsedTime();
 }
 public void runOpMode() {
@@ -20,18 +20,21 @@ public void runOpMode() {
     rearRight = hardwareMap.get(DcMotor.class, "rearRight");
     frontRight = hardwareMap.get(DcMotor.class, "frontRight");
     frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
+    slideMotor = hardwareMap.get(DcMotor.class, "slideMotor");
 
     // Set Motor Directions
     rearLeft.setDirection(DcMotor.Direction.FORWARD);
     rearRight.setDirection(DcMotor.Direction.FORWARD);
     frontRight.setDirection(DcMotor.Direction.FORWARD);
     frontLeft.setDirection(DcMotor.Direction.FORWARD);
+    slideMotor.setDirection(DcMotor.Direction.FORWARD);
 
     // Set Motors to Brake
     rearLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     rearRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.Brake);
+    slideMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.Brake);
 
     // Non-timed methods
     public void rearRightWheel(double power) {
@@ -67,6 +70,10 @@ public void runOpMode() {
 
         runtime.reset();
     } // Moves all of the wheels
+    public void slideMotor(double power) {
+
+        slideMotor.setPower(power);
+    } // sets the power of the slide motor
 
     // Timed methods
     public void timeRearRightWheel(double power, double timeSecond) {
