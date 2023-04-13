@@ -10,6 +10,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -24,7 +25,7 @@ public class HorseBot extends LinearOpMode {
 
     // Constant
     final double INC    = 0.1;
-    final int    DELAY  = 30;
+    final int    DELAY  = 10;
     final int    RUMBLE = 1000;
 
     @Override
@@ -37,8 +38,8 @@ public class HorseBot extends LinearOpMode {
         head = hardwareMap.get(Servo.class, "head");
 
         // Set Motor Directions
-        leftMotor.setDirection(DcMotor.Direction.FORWARD);
-        rightMotor.setDirection(DcMotor.Direction.REVERSE);
+        leftMotor.setDirection(DcMotor.Direction.REVERSE);
+        rightMotor.setDirection(DcMotor.Direction.FORWARD);
 
         // Set Motors to Brake
         leftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);

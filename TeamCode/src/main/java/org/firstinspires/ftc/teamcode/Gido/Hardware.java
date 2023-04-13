@@ -3,6 +3,9 @@ This class is meant for hardware stuff so that instead of making the same object
 I can just get them from here.
 */
 
+package org.firstinspires.ftc.teamcode.Gido;
+
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -13,29 +16,29 @@ public class Hardware extends LinearOpMode {
 
     private DcMotor rearLeft, rearRight, frontRight, frontLeft, slideMotor;
     private ElapsedTime     runtime = new ElapsedTime();
-}
-public void runOpMode() {
-    // Connect Motors
-    rearLeft = hardwareMap.get(DcMotor.class, "rearLeft");
-    rearRight = hardwareMap.get(DcMotor.class, "rearRight");
-    frontRight = hardwareMap.get(DcMotor.class, "frontRight");
-    frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
-    slideMotor = hardwareMap.get(DcMotor.class, "slideMotor");
 
-    // Set Motor Directions
-    rearLeft.setDirection(DcMotor.Direction.FORWARD);
-    rearRight.setDirection(DcMotor.Direction.FORWARD);
-    frontRight.setDirection(DcMotor.Direction.FORWARD);
-    frontLeft.setDirection(DcMotor.Direction.FORWARD);
-    slideMotor.setDirection(DcMotor.Direction.FORWARD);
+    public void runOpMode() {
+        // Connect Motors
+        rearLeft = hardwareMap.get(DcMotor.class, "rearLeft");
+        rearRight = hardwareMap.get(DcMotor.class, "rearRight");
+        frontRight = hardwareMap.get(DcMotor.class, "frontRight");
+        frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
+        slideMotor = hardwareMap.get(DcMotor.class, "slideMotor");
 
-    // Set Motors to Brake
-    rearLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-    rearRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-    frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-    frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.Brake);
-    slideMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.Brake);
+        // Set Motor Directions
+        rearLeft.setDirection(DcMotor.Direction.FORWARD);
+        rearRight.setDirection(DcMotor.Direction.FORWARD);
+        frontRight.setDirection(DcMotor.Direction.FORWARD);
+        frontLeft.setDirection(DcMotor.Direction.FORWARD);
+        slideMotor.setDirection(DcMotor.Direction.FORWARD);
 
+        // Set Motors to Brake
+        rearLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rearRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        frontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        slideMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+    }
     // Non-timed methods
     public void rearRightWheel(double power) {
 
@@ -53,7 +56,7 @@ public void runOpMode() {
 
         frontLeft.setPower(power);
 
-        runtime.setPower(power)
+        runtime.reset();
     } // Moves the rear left wheel
     public void frontRightWheel(double power) {
 
