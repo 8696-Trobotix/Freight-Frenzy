@@ -38,8 +38,8 @@ public class HorseBot extends LinearOpMode {
         head = hardwareMap.get(Servo.class, "head");
 
         // Set Motor Directions
-        leftMotor.setDirection(DcMotor.Direction.REVERSE);
-        rightMotor.setDirection(DcMotor.Direction.FORWARD);
+        leftMotor.setDirection(DcMotor.Direction.FORWARD);
+        rightMotor.setDirection(DcMotor.Direction.REVERSE);
 
         // Set Motors to Brake
         leftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
