@@ -49,7 +49,7 @@ public class HorseBot extends LinearOpMode {
 
         // Mutable Variables
         double leftPower, rightPower;
-        double headpos = head.getPosition();
+        double headpos = 0.5;
 
         while (opModeIsActive()) {
             // Controller
